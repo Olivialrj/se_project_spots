@@ -11,8 +11,12 @@ The technologies and techniques used are are made up with
 - flex box for the profile,
 - Hiding overflow for single rows of text,
 - Hiding overflow for multiple rows of text, and
-- using the BEM - modifier naming practises for the buttons to change their colors.
+- using the BEM - modifier naming practises for the buttons to change their colors,
+- wrapping around elements that requires them to be in flex container,
+- Using the hover selector on links and making minor changes to its original shade
 
 ### Link to GitHub Pages
 
 https://github.com/Olivialrj/se_project_spots
+
+### Link to Video
