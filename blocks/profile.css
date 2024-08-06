@@ -1,0 +1,146 @@
+.profile {
+  display: flex;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+  padding: 34px 0 20px;
+  margin: 0 auto;
+}
+
+.profile__avatar {
+  height: 190px;
+  width: 190px;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.profile__name-description {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 190px;
+}
+
+.profile__name {
+  margin: 0;
+  font-size: 32px;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.profile__description {
+  margin: 0;
+  padding: 12px 0 18px 0;
+  color: #212121;
+  opacity: 0.7;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.profile__button-secondary {
+  display: flex;
+  margin-top: auto;
+  padding: 0;
+  height: 20px;
+  width: 130px;
+  font-size: 16px;
+  border: none;
+  background: #fcf5e5;
+  opacity: 0.7;
+}
+
+.profile__button-secondary-icon {
+  margin-right: 8px;
+}
+
+.profile__button-secondary:hover {
+  opacity: 1;
+}
+
+.profile__button-primary {
+  margin-left: auto;
+  width: 149px;
+  height: 52px;
+  align-self: flex-end;
+  border-radius: 8px;
+  color: #212121;
+  font-size: 16px;
+  background-color: #212121;
+}
+
+.profile__button-primary--color {
+  color: #fcf5e5;
+}
+
+.profile__button-primary-icon {
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+}
+
+.profile__button-primary:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    max-width: 288px;
+    padding: 20px 0 0;
+    max-height: 346px;
+  }
+
+  .profile__avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  .profile__name-description {
+    text-align: center;
+    width: 288px;
+  }
+
+  .profile__name {
+    margin: 12px 0 6px;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .profile__description {
+    margin-bottom: 32px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .profile__button-secondary {
+    margin: 0 auto 20px;
+    opacity: 0.7;
+    width: 108px;
+  }
+
+  .profile__button-primary {
+    margin: 0 0 20px auto;
+    width: 288px;
+    height: 52px;
+  }
+}
