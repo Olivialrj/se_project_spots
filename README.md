@@ -34,3 +34,5 @@ The technologies and techniques used are are made up with
 - using the BEM - modifier naming practises for the buttons to change their colors.
 
 ### Link to GitHub Pages
+
+https://github.com/Olivialrj/se_project_spots
