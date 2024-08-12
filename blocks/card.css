@@ -1,6 +1,6 @@
 .card {
-  width: 413px;
-  height: 445px;
+  max-width: 413px;
+  min-height: 445px;
 }
 
 .card__image {
@@ -12,11 +12,12 @@
 .card__title {
   display: flex;
   justify-content: space-between;
+  object-fit: cover;
 }
 
 .card__caption {
   margin: 12px 0 0;
-  font-family: "Poppins";
+  font-family: "Poppins", Arial, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
@@ -33,15 +34,19 @@
   align-self: flex-end;
   color: #212121;
   opacity: 0.6;
+  border: none;
+  background-color: #fcf5e5;
+  cursor: pointer;
 }
+
 .card__icon:hover {
   opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
   .card {
-    width: 288px;
-    height: 316px;
+    max-width: 288px;
+    min-height: 316px;
 
     margin: 0;
   }
@@ -49,5 +54,9 @@
   .card__image {
     width: 288px;
     height: 288px;
+  }
+
+  .card__caption {
+    font-size: 16px;
   }
 }

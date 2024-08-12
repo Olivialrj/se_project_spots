@@ -27,7 +27,6 @@
   .cards {
     grid-template-columns: repeat(1, 318px);
     grid-template-rows: repeat(6, 308px);
-    justify-content: center;
     justify-items: center;
   }
 }

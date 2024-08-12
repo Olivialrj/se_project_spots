@@ -15,14 +15,14 @@
 .profile__name-description {
   display: flex;
   flex-direction: column;
-  width: 420px;
-  height: 190px;
+  max-width: 420px;
+  min-height: 190px;
 }
 
 .profile__name {
   margin: 0;
   font-size: 32px;
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   line-height: 32px;
   text-align: left;
@@ -38,7 +38,7 @@
   padding: 12px 0 18px 0;
   color: #212121;
   opacity: 0.7;
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
@@ -60,6 +60,7 @@
   border: none;
   background: #fcf5e5;
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .profile__button-secondary-icon {
@@ -76,12 +77,9 @@
   height: 52px;
   align-self: flex-end;
   border-radius: 8px;
-  color: #212121;
   font-size: 16px;
   background-color: #212121;
-}
-
-.profile__button-primary--color {
+  cursor: pointer;
   color: #fcf5e5;
 }
 
@@ -97,11 +95,10 @@
 
 @media screen and (max-width: 627px) {
   .profile {
-    display: flex;
     flex-direction: column;
     max-width: 288px;
     padding: 20px 0 0;
-    max-height: 346px;
+    min-height: 346px;
   }
 
   .profile__avatar {
@@ -112,7 +109,7 @@
 
   .profile__name-description {
     text-align: center;
-    width: 288px;
+    max-width: 288px;
   }
 
   .profile__name {

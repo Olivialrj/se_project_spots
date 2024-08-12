@@ -20,3 +20,5 @@ The technologies and techniques used are are made up with
 https://github.com/Olivialrj/se_project_spots
 
 ### Link to Video
+
+https://drive.google.com/file/d/1vzuid5UQ_KaFUm9MyFLTBsDbBRqaj8Zn/view?usp=sharing
