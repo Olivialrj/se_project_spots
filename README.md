@@ -17,9 +17,9 @@ The technologies and techniques used are are made up with
 
 ### Link to GitHub Pages
 
-https://github.com/Olivialrj/se_project_spots
+<!-- https://github.com/Olivialrj/se_project_spots -->
 
-<!-- i am unable to access the link which was provided for correction: https://tripleten.com/trainer/web/lesson/07e0bdf0-d597-4a8f-8dda-eada84722122/?from=program  -->
+https://olivialrj.github.io/se_project_spots/
 
 ### Link to Video
 
