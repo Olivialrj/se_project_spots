@@ -2,14 +2,14 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url(vendor/fonts/Poppins);
+  src: url(vendor/fonts/Poppins/Poppins-Regular.ttf);
    format("truetype");
 }
 
 @font-face {
-  font-family: "Poppins-Medium.ttf";
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  src: url(vendor/fonts/Poppins);
+  src: url(vendor/fonts/Poppins/Poppins-Medium.ttf);
     format("truetype");
 }
