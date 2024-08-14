@@ -81,6 +81,7 @@
   background-color: #212121;
   cursor: pointer;
   color: #fcf5e5;
+  border: none;
 }
 
 .profile__button-primary-icon {
