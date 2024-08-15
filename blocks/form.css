@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 630px;
+}
+
+.form__title {
+  font-size: 32px;
+  margin: 0 0 32px;
+}
+
+.form__label {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #212121b2;
+}
+
+.form__input {
+  margin-bottom: 32px;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  padding: 16px 0px 16px 12px;
+  border-radius: 8px;
+  border: solid 1px #21212166;
+}
+
+.form__input:hover {
+  border: solid 1px #212121;
+  cursor: pointer;
+}
+.form__button {
+  max-width: 156px;
+  border-radius: 8px;
+  border: none;
+  padding: 18px 32px;
+  background-color: #212121;
+  color: #fcf5e5;
+}
+
+@media screen and (max-width: 627px) {
+  .form {
+    min-width: 267px;
+  }
+  .form__title {
+    font-size: 20px;
+  }
+  .form__button {
+    min-width: 276px;
+  }
+}
