@@ -11,7 +11,6 @@ const initialCards = [
     name: "An outdoor cafe",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
   }),
-
   (object4 = {
     name: "A very long bridge, over the forest and through the trees",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
@@ -25,3 +24,17 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   }),
 ];
+
+const profileEditButton = document.querySelector(".profile__button-secondary");
+const editModal = document.querySelector("#edit-modal");
+const editModalCloseButton = editModal.querySelector(".modal__button");
+
+function showModal() {
+  editModal.classList.add("modal_opened");
+}
+
+function hideModal() {
+  editModal.classList.remove("modal_opened");
+}
+profileEditButton.addEventListener("click", showModal);
+editModalCloseButton.addEventListener("click", hideModal);
