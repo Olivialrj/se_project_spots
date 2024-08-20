@@ -24,14 +24,8 @@
             alt="A photo of the avatar"
           />
           <div class="profile__name-description">
-            <h1 class="profile__name">
-              Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...
-            </h1>
-            <p class="profile__description">
-              Known mononymously as Akon (/ˈeɪkɒn/), is a Senegalese-American
-              singer, record producer, and entrepreneur. An influential figure
-              in modern world...
-            </p>
+            <h1 class="profile__name">Bessie Coleman</h1>
+            <p class="profile__description">Civil Aviation</p>
             <button class="profile__button-secondary" type="button">
               <img
                 class="profile__button-secondary-icon"
@@ -51,90 +45,19 @@
         </section>
 
         <section class="cards">
-          <div class="card">
-            <img
-              class="card__image"
-              src="images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="photo1"
-            />
-            <div class="card__title">
-              <h2 class="card__caption">Val Thorens</h2>
-              <button type="button" class="card__icon">
-                <img src="images/heart-icon.svg" alt="heart icon" />
-              </button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__image"
-              src="images/2-photo-by-ceiline-from-pexels.jpg"
-              alt="photo2"
-            />
-            <div class="card__title">
-              <h2 class="card__caption">Restaurant terrace</h2>
-              <button type="button" class="card__icon">
-                <img src="images/heart-icon.svg" alt="heart icon" />
-              </button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__image"
-              src="images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-              alt="photo3"
-            />
-            <div class="card__title">
-              <h2 class="card__caption">An outdoor cafe</h2>
-
-              <button type="button" class="card__icon">
-                <img src="images/heart-icon.svg" alt="heart icon" />
-              </button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img
-              class="card__image"
-              src="images/4-photo-by-maurice-laschet-from-pexels.jpg"
-              alt="photo4"
-            />
-            <div class="card__title">
-              <h2 class="card__caption">
-                A very long bridge, over the forest and testing
-              </h2>
-              <button type="button" class="card__icon">
-                <img src="images/heart-icon.svg" alt="heart icon" />
-              </button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img
-              class="card__image"
-              src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-              alt="photo5"
-            />
-            <div class="card__title">
-              <h2 class="card__caption">Tunnel with morning light</h2>
-              <button type="button" class="card__icon">
-                <img src="images/heart-icon.svg" alt="heart icon" />
-              </button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img
-              class="card__image"
-              src="images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="photo6"
-            />
-            <div class="card__title">
-              <h2 class="card__caption">Mountain house</h2>
-              <button type="button" class="card__icon">
-                <img src="images/heart-icon.svg" alt="heart icon" />
-              </button>
-            </div>
-          </div>
+          <ul class="card__list">
+            <template id="card-template">
+              <li class="card">
+                <img class="card__image" src="" alt="" />
+                <div class="card__title">
+                  <h2 class="card__caption"></h2>
+                  <button type="button" class="card__icon">
+                    <img src="images/heart-icon.svg" alt="heart icon" />
+                  </button>
+                </div>
+              </li>
+            </template>
+          </ul>
         </section>
       </main>
       <footer class="footer">
@@ -149,25 +72,29 @@
               alt="close icon"
             />
           </button>
-          <form class="form">
+          <form class="modal__form form">
             <h3 class="form__title">Edit Profile</h3>
-            <label class="form__label" for="name">Name</label>
+            <label class="form__label" for="profile-name">Name</label>
             <input
-              class="form__input"
+              class="form__input form__input-name"
               type="text"
-              id="name"
+              id="profile-name"
               name="name"
               placeholder="Type your name"
             />
-            <label class="form__label" for="description">Description</label>
+            <label class="form__label" for="profile-description"
+              >Description</label
+            >
             <input
-              class="form__input"
+              class="form__input form__input-description"
               type="text"
-              id="description"
+              id="profile-description"
               name="description"
               placeholder="Describe yourself"
             />
-            <button class="form__button" type="button">Save</button>
+            <button class="form__button form__button-submit" type="button">
+              Save
+            </button>
           </form>
         </div>
       </div>
