@@ -1,7 +1,7 @@
 const initialCards = [
   (object1 = {
-    name: "A building with signs",
-    link: "http://unsplash.com/photos/a-building-with-a-lot-of-signs-on-the-side-of-it-qt3IKanoH50",
+    name: "Val Thorens",
+    link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   }),
   (object2 = {
     name: "Restaurant terrace",
@@ -33,7 +33,6 @@ const editModalCloseButton = editModal.querySelector(".modal__button");
 const editFormElement = editModal.querySelector(".modal__form");
 const editNameInput = editModal.querySelector("#profile-name");
 const editJobInput = editModal.querySelector("#profile-description");
-const cardTemplate = document.querySelector("#card-template");
 
 function showModal() {
   editModal.classList.add("modal_opened");
@@ -53,22 +52,27 @@ function handleProfileFormSubmit(evt) {
 
   hideModal();
 }
+
+profileEditButton.addEventListener("click", showModal);
+editModalCloseButton.addEventListener("click", hideModal);
+editFormElement.addEventListener("submit", handleProfileFormSubmit);
+
 const cardTemplate = document.querySelector("#card-template");
-const cardList = document.querySelector(".card__list");
+const cardList = document.querySelector(".cards");
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
 
-  const cardNameEl = cardElement.querySelector(".card_caption");
+  const cardNameEl = cardElement.querySelector(".card__caption");
+  const cardImageEl = cardElement.querySelector(".card__image");
   cardNameEl.textContent = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
 
   return cardElement;
 }
-
-profileEditButton.addEventListener("click", showModal);
-editModalCloseButton.addEventListener("click", hideModal);
-editFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 for (let i = 0; i < initialCards.length; i++) {
   const cardElement = getCardElement(initialCards[i]);
