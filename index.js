@@ -32,16 +32,17 @@ const initialCards = [
 const profileNameElement = document.querySelector(".profile__name");
 const profileJobElement = document.querySelector(".profile__description");
 const profileEditButton = document.querySelector(".profile__button-secondary");
+const profilePostButton = document.querySelector(".profile__button-primary");
+
 const editModal = document.querySelector("#edit-modal");
 const editModalCloseButton = editModal.querySelector(".modal__button");
-const editFormElement = editModal.querySelector(".modal__form");
+const editFormElement = editModal.querySelector(".edit-modal__form");
 const editNameInput = editModal.querySelector("#profile-name");
 const editJobInput = editModal.querySelector("#profile-description");
 
-const profilePostButton = document.querySelector(".profile__button-primary");
 const postModal = document.querySelector("#post-modal");
-const postModalElement = postModal.querySelector(".modal__form");
 const postModalCloseButton = postModal.querySelector(".modal__button");
+const postFormElement = postModal.querySelector(".post-modal__form");
 const postLinkInput = postModal.querySelector("#image-link");
 const postCaptionInput = postModal.querySelector("#newpost-caption");
 
@@ -53,15 +54,14 @@ const previewModalImage = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
 
 function showModal() {
-  editModal.classList.add("modal_opened");
+  // editModal.classList.add("modal_opened");
+  openPopup(editModal);
   editNameInput.value = profileNameElement.textContent;
   editJobInput.value = profileJobElement.textContent;
 }
 
-function hideModal() {
-  [editModal, postModal, previewModal].forEach((modal) => {
-    modal.classList.remove("modal_opened");
-  });
+function hideAllModal() {
+  [editModal, postModal, previewModal].forEach(closePopup);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -70,7 +70,7 @@ function handleProfileFormSubmit(evt) {
   profileNameElement.textContent = editNameInput.value;
   profileJobElement.textContent = editJobInput.value;
 
-  hideModal();
+  hideAllModal();
 }
 
 const handleNewPostSubmit = (evt) => {
@@ -82,21 +82,33 @@ const handleNewPostSubmit = (evt) => {
   };
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
-
-  hideModal();
+  clearInputs();
+  hideAllModal();
 };
+function clearInputs() {
+  postCaptionInput.value = "";
+  postLinkInput.value = "";
+}
+function closePopup(popup) {
+  popup.classList.remove("modal_opened");
+}
+
+function openPopup(popup) {
+  popup.classList.add("modal_opened");
+}
 
 profileEditButton.addEventListener("click", showModal);
 profilePostButton.addEventListener("click", () => {
-  postModal.classList.add("modal_opened");
+  openPopup(postModal);
 });
+
 [editModalCloseButton, postModalCloseButton, previewCloseButton].forEach(
   (button) => {
-    button.addEventListener("click", hideModal);
+    button.addEventListener("click", hideAllModal);
   }
 );
 editFormElement.addEventListener("submit", handleProfileFormSubmit);
-postModalElement.addEventListener("submit", handleNewPostSubmit);
+postFormElement.addEventListener("submit", handleNewPostSubmit);
 
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards");
