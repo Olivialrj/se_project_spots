@@ -48,11 +48,10 @@
           <template id="card-template">
             <div class="card">
               <img class="card__image" src="" alt="" />
+              <button type="button" class="card__delete-icon"></button>
               <div class="card__title">
                 <h2 class="card__caption"></h2>
-                <button type="button" class="card__icon">
-                  <img src="images/heart-icon.svg" alt="heart icon" />
-                </button>
+                <button type="button" class="card__icon"></button>
               </div>
             </div>
           </template>
@@ -95,6 +94,50 @@
             </button>
           </form>
         </div>
+      </div>
+
+      <div id="post-modal" class="modal">
+        <div class="modal__container">
+          <button class="modal__button" type="button">
+            <img
+              class="modal__close-icon"
+              src="images/close-icon.svg"
+              alt="close icon"
+            />
+          </button>
+          <form class="modal__form form">
+            <h3 class="form__title">New Post</h3>
+            <label class="form__label" for="image-link">Image Link</label>
+            <input
+              class="form__input form__input-link"
+              type="text"
+              id="image-link"
+              name="link"
+              placeholder="Paste a link to the picture"
+            />
+            <label class="form__label" for="newpost-caption">Caption</label>
+            <input
+              class="form__input form__input-caption"
+              type="text"
+              id="newpost-caption"
+              name="caption"
+              placeholder="Type your caption"
+            />
+            <button class="form__button form__button-submit" type="submit">
+              Save
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="preview-modal">
+      <div class="modal__content modal__content_type_preview">
+        <button
+          class="modal__close-icon modal__close-icon_type_preview"
+          type="button"
+        ></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
       </div>
     </div>
     <script src="./index.js"></script>
