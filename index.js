@@ -53,14 +53,14 @@ const previewCloseButton = previewModal.querySelector(
 const previewModalImage = previewModal.querySelector(".modal__image");
 const previewModalCaption = previewModal.querySelector(".modal__caption");
 
-function showModal() {
+function showProfileModal() {
   // editModal.classList.add("modal_opened");
   openPopup(editModal);
   editNameInput.value = profileNameElement.textContent;
   editJobInput.value = profileJobElement.textContent;
 }
 
-function hideAllModal() {
+function hideAllModals() {
   [editModal, postModal, previewModal].forEach(closePopup);
 }
 
@@ -70,7 +70,7 @@ function handleProfileFormSubmit(evt) {
   profileNameElement.textContent = editNameInput.value;
   profileJobElement.textContent = editJobInput.value;
 
-  hideAllModal();
+  hideAllModals();
 }
 
 const handleNewPostSubmit = (evt) => {
@@ -83,7 +83,7 @@ const handleNewPostSubmit = (evt) => {
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
   clearInputs();
-  hideAllModal();
+  hideAllModals();
 };
 function clearInputs() {
   postCaptionInput.value = "";
@@ -97,7 +97,7 @@ function openPopup(popup) {
   popup.classList.add("modal_opened");
 }
 
-profileEditButton.addEventListener("click", showModal);
+profileEditButton.addEventListener("click", showProfileModal);
 profilePostButton.addEventListener("click", () => {
   openPopup(postModal);
 });
@@ -132,7 +132,7 @@ function getCardElement(data) {
   });
 
   cardImageEl.addEventListener("click", () => {
-    previewModal.classList.add("modal_opened");
+    openPopup(previewModal);
     previewModalCaption.textContent = data.name;
     previewModalImage.src = data.link;
     previewModalImage.alt = data.name;
