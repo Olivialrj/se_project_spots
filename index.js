@@ -104,7 +104,7 @@ profilePostButton.addEventListener("click", () => {
 
 [editModalCloseButton, postModalCloseButton, previewCloseButton].forEach(
   (button) => {
-    button.addEventListener("click", hideAllModal);
+    button.addEventListener("click", hideAllModals);
   }
 );
 editFormElement.addEventListener("submit", handleProfileFormSubmit);
