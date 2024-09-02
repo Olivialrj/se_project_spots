@@ -155,8 +155,12 @@ initialCards.forEach((item) => {
 });
 
 const closeModals = document.querySelectorAll(".modal");
-closeModals.forEach((evt) => {
-  evt.addEventListener("click", hideAllModals);
+closeModals.forEach((modal) => {
+  modal.addEventListener("click", function (evt) {
+    if (evt.target === modal) {
+      hideAllModals();
+    }
+  });
 });
 
 const keyHandler = (evt) => {
