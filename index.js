@@ -153,3 +153,16 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardList.append(cardElement);
 });
+
+const closeModals = document.querySelectorAll(".modal");
+closeModals.forEach((evt) => {
+  evt.addEventListener("click", hideAllModals);
+});
+
+const keyHandler = (evt) => {
+  if (evt.key === "Escape") {
+    hideAllModals();
+  }
+};
+
+document.addEventListener("keydown", keyHandler);

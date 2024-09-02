@@ -45,6 +45,10 @@
   opacity: 1;
 }
 
+.modal__button_inactive {
+  opacity: 0.5;
+}
+
 .modal__close-icon {
   height: 40px;
   width: 40px;
@@ -81,6 +85,7 @@
   font-size: 20px;
   margin: 8px 0 0 0;
 }
+
 .modal_opened {
   visibility: visible;
   opacity: 1;
