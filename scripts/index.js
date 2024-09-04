@@ -62,6 +62,7 @@ function showProfileModal() {
 
 function hideAllModals() {
   [editModal, postModal, previewModal].forEach(closePopup);
+  // document.removeEventListener("keydown", handleEscape);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -91,10 +92,12 @@ function clearInputs() {
 }
 function closePopup(popup) {
   popup.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
 function openPopup(popup) {
   popup.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscape);
 }
 
 profileEditButton.addEventListener("click", showProfileModal);
@@ -154,8 +157,8 @@ initialCards.forEach((item) => {
   cardList.append(cardElement);
 });
 
-const closeModals = document.querySelectorAll(".modal");
-closeModals.forEach((modal) => {
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
   modal.addEventListener("click", function (evt) {
     if (evt.target === modal) {
       hideAllModals();
@@ -163,10 +166,8 @@ closeModals.forEach((modal) => {
   });
 });
 
-const keyHandler = (evt) => {
+const handleEscape = (evt) => {
   if (evt.key === "Escape") {
     hideAllModals();
   }
 };
-
-document.addEventListener("keydown", keyHandler);

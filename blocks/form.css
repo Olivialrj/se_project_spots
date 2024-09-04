@@ -32,10 +32,6 @@
   cursor: pointer;
 }
 
-.form__input_type_error {
-  border: 1px solid rgba(255, 0, 0, 0.6);
-}
-
 .form__error {
   margin-top: 8px;
   color: #ff0000b2;

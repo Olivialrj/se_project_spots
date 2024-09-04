@@ -45,9 +45,8 @@
   opacity: 1;
 }
 
-.modal__button_inactive {
-  opacity: 0.5;
-}
+/* .modal__button_inactive {
+} */
 
 .modal__close-icon {
   height: 40px;
