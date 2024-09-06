@@ -36,6 +36,9 @@ const profilePostButton = document.querySelector(".profile__button-primary");
 
 const editModal = document.querySelector("#edit-modal");
 const editModalCloseButton = editModal.querySelector(".modal__button");
+const editModalSubmitButton = editModal.querySelector(
+  ".edit-modal__submit-button"
+);
 const editFormElement = editModal.querySelector(".edit-modal__form");
 const editNameInput = editModal.querySelector("#profile-name");
 const editJobInput = editModal.querySelector("#profile-description");
@@ -43,6 +46,9 @@ const editJobInput = editModal.querySelector("#profile-description");
 const postModal = document.querySelector("#post-modal");
 const postModalCloseButton = postModal.querySelector(".modal__button");
 const postFormElement = postModal.querySelector(".post-modal__form");
+const postModalSubmitButton = postModal.querySelector(
+  ".post-modal__submit-button"
+);
 const postLinkInput = postModal.querySelector("#image-link");
 const postCaptionInput = postModal.querySelector("#newpost-caption");
 
@@ -70,7 +76,7 @@ function handleProfileFormSubmit(evt) {
 
   profileNameElement.textContent = editNameInput.value;
   profileJobElement.textContent = editJobInput.value;
-
+  disabledButton(editModalSubmitButton, settings);
   hideAllModals();
 }
 
@@ -83,13 +89,11 @@ const handleNewPostSubmit = (evt) => {
   };
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
-  clearInputs();
+  evt.target.reset();
+  disabledButton(postModalSubmitButton, settings);
   hideAllModals();
 };
-function clearInputs() {
-  postCaptionInput.value = "";
-  postLinkInput.value = "";
-}
+
 function closePopup(popup) {
   popup.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscape);

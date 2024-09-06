@@ -44,10 +44,9 @@
 .modal__button:hover {
   opacity: 1;
 }
-
-/* .modal__button_inactive {
-} */
-
+.modal__button_disabled {
+  opacity: 0.5;
+}
 .modal__close-icon {
   height: 40px;
   width: 40px;
@@ -83,6 +82,10 @@
   border-radius: 8px;
   font-size: 20px;
   margin: 8px 0 0 0;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal_opened {
