@@ -37,17 +37,17 @@ const profilePostButton = document.querySelector(".profile__button-primary");
 const editModal = document.querySelector("#edit-modal");
 const editModalCloseButton = editModal.querySelector(".modal__button");
 const editModalSubmitButton = editModal.querySelector(
-  ".edit-modal__submit-button"
+  ".modal-edit__submit-button"
 );
-const editFormElement = editModal.querySelector(".edit-modal__form");
+const editFormElement = editModal.querySelector(".modal-edit__form ");
 const editNameInput = editModal.querySelector("#profile-name");
 const editJobInput = editModal.querySelector("#profile-description");
 
 const postModal = document.querySelector("#post-modal");
 const postModalCloseButton = postModal.querySelector(".modal__button");
-const postFormElement = postModal.querySelector(".post-modal__form");
+const postFormElement = postModal.querySelector(".modal-post__form ");
 const postModalSubmitButton = postModal.querySelector(
-  ".post-modal__submit-button"
+  ".modal-post__submit-button"
 );
 const postLinkInput = postModal.querySelector("#image-link");
 const postCaptionInput = postModal.querySelector("#newpost-caption");
