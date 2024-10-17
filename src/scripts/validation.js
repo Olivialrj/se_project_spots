@@ -1,4 +1,4 @@
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-button",
@@ -43,9 +43,13 @@ const toggleButtonState = (inputList, buttonEl, config) => {
   }
 };
 
-const disabledButton = (buttonEl, config) => {
-  buttonEl.disabled = true;
-  buttonEl.classList.add(config.inactiveButtonClass);
+export const disabledButton = (buttonEl, config) => {
+  if (buttonEl) {
+    buttonEl.disabled = true; // Disable the button
+    buttonEl.classList.add(config.inactiveButtonClass); // Apply inactive styling
+  } else {
+    console.warn("Button not found or is already disabled.");
+  }
 };
 
 // const resetValidation = (formEl, inputList, config) => {
@@ -66,11 +70,9 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((formEl) => {
     setEventListeners(formEl, config);
   });
 };
-
-enableValidation(settings);

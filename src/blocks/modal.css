@@ -1,0 +1,244 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+}
+
+.modal__container {
+  /* visibility: visible; */
+  background-color: white;
+  max-width: 730px;
+  padding: 32px 50px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.modal__container-avatar {
+  position: relative;
+  min-width: 730px;
+  background-color: white;
+  padding: 32px 50px;
+  border-radius: 8px;
+}
+
+.modal__container-delete {
+  border-radius: 8px;
+  padding: 32px 20px;
+}
+
+.modal__content {
+  position: relative;
+}
+
+.modal__content_type_preview {
+  padding: 0;
+}
+
+.modal__button {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  background-color: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.modal__button-avatar {
+  background-color: black;
+  color: white;
+  padding: 18px 58px;
+  border-radius: 8px;
+  max-width: 156px;
+  border: none;
+}
+
+.modal__button-caption {
+  margin: 0;
+}
+.modal__button:hover {
+  opacity: 1;
+}
+
+.modal__button_disabled {
+  opacity: 0.5;
+}
+
+.modal__close-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.modal__close-icon-avatar {
+  right: 50px;
+  top: 32px;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+}
+#avatar-modal-close {
+  opacity: 0.4;
+}
+.modal__close-icon-delete {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  right: -52px;
+  bottom: 133px;
+  padding: 0;
+  border: none;
+  opacity: 1;
+  display: block;
+  background-color: transparent;
+}
+
+.modal__close-icon_type_preview {
+  background: url(../images/default-closeicon.svg) center no-repeat;
+  border: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: -52.57px;
+  padding: 0;
+}
+
+.modal__close-icon_type_preview:hover {
+  background-image: url(../images/hover-closeicon.svg);
+}
+
+.modal__title {
+  font-family: "poppins", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 32px 0;
+}
+
+#edit-avatar-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__image {
+  /* width: 446px;
+  height: 661px; */
+  min-width: 288px;
+  max-width: 80vw;
+  max-height: 80vh;
+}
+.modal__label {
+  font-family: "poppins", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #212121b2;
+  margin: 0 0 8px 0;
+}
+#profile-avatar-input {
+  font-family: "poppins", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #2121214d;
+  padding: 16px 0 16px 12px;
+  border-radius: 8px;
+  margin: 0 0 32px 0;
+  border: 1px solid #21212166;
+}
+.modal__caption {
+  font-family: "poppins", Arial, sans-serif;
+  padding: 4px 8px;
+  background-color: #212121;
+  color: white;
+  width: fit-content;
+  border-radius: 8px;
+  font-size: 20px;
+  margin: 8px 0 0 0;
+}
+
+.modal__caption-delete {
+  font-family: "poppins", Arial, sans-serif;
+  height: 24px;
+  /* width: 590px; */
+  font-weight: 500;
+  margin: 0 0 32px 0;
+  font-size: 24px;
+  text-align: center;
+  min-width: 590px;
+}
+
+.modal__button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modal__delete-btn {
+  max-width: 156px;
+  padding: 18px 52px;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.modal__delete-btn:last-child {
+  margin: 0;
+}
+
+.modal__delete-type {
+  background-color: #ff6565;
+  border: 0;
+}
+
+.modal__delete-type:hover {
+  background-color: #ff3333;
+  cursor: pointer;
+}
+
+.modal__delete-type-cancel {
+  background-color: #ffffff;
+  border: solid 1px black;
+}
+
+.modal__delete-type-cancel:hover {
+  background-color: #212121;
+  cursor: pointer;
+  color: white;
+}
+
+.modal__button-caption {
+  font-family: "poppins", Arial, sans-serif;
+  margin: 0;
+  height: 16px;
+  font-size: 16px;
+}
+
+.modal_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+@media screen and (max-width: 627px) {
+  .modal__container {
+    max-width: 300px;
+    padding: 22px 12px 12px 12px;
+  }
+
+  .modal__button {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal__close-icon_type_preview {
+    top: -48px;
+    right: 0;
+  }
+}
