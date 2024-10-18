@@ -144,7 +144,6 @@ const avatarModalButton = document.querySelector(".profile__avatar-button");
 
 let selectedCard;
 let selectedCardId;
-console.log(editModalSubmitButton, postModalSubmitButton, avatarSubmitButton);
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -191,7 +190,8 @@ function handleAvatarSubmit(evt) {
   api
     .updateProfilePicture(avatarInput.value)
     .then((data) => {
-      avatarEl.src = data.avatar;
+      avatarImage.src = data.avatar;
+      avatarInput.value = "";
       disabledButton(avatarSubmitButton, settings);
       hideAllModals();
     })
@@ -199,40 +199,6 @@ function handleAvatarSubmit(evt) {
     .finally(() => {
       submitbtn.textContent = "Save";
     });
-}
-
-function showProfileModal() {
-  openPopup(editModal);
-  editNameInput.value = profileNameElement.textContent;
-  editJobInput.value = profileJobElement.textContent;
-}
-
-function hideAllModals() {
-  [editModal, postModal, previewModal, deleteModal, avatarModal].forEach(
-    closePopup
-  );
-}
-
-[
-  editModalCloseButton,
-  postModalCloseButton,
-  previewCloseButton,
-  deleteCloseButton,
-  deleteCancelButton,
-  deleteCloseImage,
-  avatarModalCloseButton,
-].forEach((button) => {
-  button.addEventListener("click", hideAllModals);
-});
-
-function closePopup(popup) {
-  popup.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleEscape);
-}
-
-function openPopup(popup) {
-  popup.classList.add("modal_opened");
-  document.addEventListener("keydown", handleEscape);
 }
 
 function getCardElement(data) {
@@ -301,18 +267,49 @@ function handleDeleteSubmit(evt) {
       submitbtn.textContent = "Delete";
     });
 }
+function closePopup(popup) {
+  popup.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
+}
 
+function openPopup(popup) {
+  popup.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscape);
+}
+function showProfileModal() {
+  openPopup(editModal);
+  editNameInput.value = profileNameElement.textContent;
+  editJobInput.value = profileJobElement.textContent;
+}
+
+function hideAllModals() {
+  [editModal, postModal, previewModal, deleteModal, avatarModal].forEach(
+    closePopup
+  );
+}
+
+[
+  editModalCloseButton,
+  postModalCloseButton,
+  previewCloseButton,
+  deleteCloseButton,
+  deleteCancelButton,
+  deleteCloseImage,
+  avatarModalCloseButton,
+].forEach((button) => {
+  button.addEventListener("click", hideAllModals);
+});
 profileEditButton.addEventListener("click", showProfileModal);
 profilePostButton.addEventListener("click", () => {
   openPopup(postModal);
 });
-deleteForm.addEventListener("submit", handleDeleteSubmit);
-editFormElement.addEventListener("submit", handleProfileFormSubmit);
-postFormElement.addEventListener("submit", handleNewPostSubmit);
 avatarModalButton.addEventListener("click", () => {
   openPopup(avatarModal);
 });
 avatarForm.addEventListener("submit", handleAvatarSubmit);
+deleteForm.addEventListener("submit", handleDeleteSubmit);
+editFormElement.addEventListener("submit", handleProfileFormSubmit);
+postFormElement.addEventListener("submit", handleNewPostSubmit);
 
 modals.forEach((modal) => {
   modal.addEventListener("click", function (evt) {

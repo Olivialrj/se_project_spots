@@ -44,12 +44,14 @@ const toggleButtonState = (inputList, buttonEl, config) => {
 };
 
 export const disabledButton = (buttonEl, config) => {
-  if (buttonEl) {
-    buttonEl.disabled = true; // Disable the button
-    buttonEl.classList.add(config.inactiveButtonClass); // Apply inactive styling
-  } else {
-    console.warn("Button not found or is already disabled.");
-  }
+  buttonEl.disabled = true; // Disable the button
+  console.log(buttonEl);
+  buttonEl.classList.add(config.inactiveButtonClass); // Apply inactive styling
+  console.log(
+    "Button state after disabling:",
+    buttonEl.disabled,
+    buttonEl.classList
+  ); // Debugging
 };
 
 // const resetValidation = (formEl, inputList, config) => {
