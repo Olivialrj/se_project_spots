@@ -71,9 +71,12 @@ const api = new Api({
   },
 });
 //destructure the second item in the callback of the .then()
+let currentUser;
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
+    console.log(cards);
+    currentUser = userInfo;
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardList.append(cardElement);
@@ -142,6 +145,59 @@ const avatarSubmitButton = avatarModal.querySelector(".modal__button-avatar");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 const avatarModalButton = document.querySelector(".profile__avatar-button");
 
+function getCardElement(data) {
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const cardNameEl = cardElement.querySelector(".card__caption");
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardLike = cardElement.querySelector(".card__icon");
+  const cardDelete = cardElement.querySelector(".card__delete-icon");
+
+  cardNameEl.textContent = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+
+  if (data.isLiked) {
+    cardLike.classList.add("card__icon_liked");
+  }
+  cardImageEl.addEventListener("click", () => {
+    openPopup(previewModal);
+    previewModalCaption.textContent = data.name;
+    previewModalImage.src = data.link;
+    previewModalImage.alt = data.name;
+  });
+
+  cardLike.addEventListener("click", (evt) => {
+    handleLike(evt, data._id);
+  });
+
+  cardDelete.addEventListener("click", (evt) => {
+    handleDeleteCard(cardElement, data._id);
+  });
+
+  return cardElement;
+}
+
+function handleLike(evt, id) {
+  console.log(evt);
+  evt.preventDefault();
+  const isLiked = evt.target.classList.contains("card__icon_liked");
+  api
+    .updateLikeStatus(id, isLiked)
+    .then(() => {
+      evt.target.classList.toggle("card__icon_liked");
+    })
+    .catch(console.error);
+}
+
+function handleDeleteCard(cardElement, cardId) {
+  selectedCard = cardElement;
+  selectedCardId = cardId;
+  openPopup(deleteModal);
+}
+
 let selectedCard;
 let selectedCardId;
 
@@ -191,7 +247,8 @@ function handleAvatarSubmit(evt) {
     .updateProfilePicture(avatarInput.value)
     .then((data) => {
       avatarImage.src = data.avatar;
-      avatarInput.value = "";
+      // avatarInput.value = "";
+      evt.target.reset();
       disabledButton(avatarSubmitButton, settings);
       hideAllModals();
     })
@@ -199,57 +256,6 @@ function handleAvatarSubmit(evt) {
     .finally(() => {
       submitbtn.textContent = "Save";
     });
-}
-
-function getCardElement(data) {
-  const cardElement = cardTemplate.content
-    .querySelector(".card")
-    .cloneNode(true);
-
-  const cardNameEl = cardElement.querySelector(".card__caption");
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardLike = cardElement.querySelector(".card__icon");
-  const cardDelete = cardElement.querySelector(".card__delete-icon");
-
-  cardNameEl.textContent = data.name;
-  cardImageEl.src = data.link;
-  cardImageEl.alt = data.name;
-
-  cardLike.addEventListener("click", (evt) => {
-    handleLike(evt, data._id, cardLike);
-  });
-  cardImageEl.addEventListener("click", () => {
-    openPopup(previewModal);
-    previewModalCaption.textContent = data.name;
-    previewModalImage.src = data.link;
-    previewModalImage.alt = data.name;
-  });
-
-  cardDelete.addEventListener("click", (evt) => {
-    handleDeleteCard(cardElement, data._id);
-  });
-
-  return cardElement;
-}
-
-function handleLike(evt, id, cardLikeElement) {
-  const isLiked = cardLikeElement.classList.contains("card__icon_liked");
-  api
-    .updateLikeStatus(id, isLiked)
-    .then((data) => {
-      if (isLiked) {
-        cardLikeElement.classList.remove("card__icon_liked");
-      } else {
-        cardLikeElement.classList.add("card__icon_liked");
-      }
-    })
-    .catch(console.error);
-}
-
-function handleDeleteCard(cardElement, cardId) {
-  selectedCard = cardElement;
-  selectedCardId = cardId;
-  openPopup(deleteModal);
 }
 
 function handleDeleteSubmit(evt) {

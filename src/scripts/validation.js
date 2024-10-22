@@ -54,11 +54,12 @@ export const disabledButton = (buttonEl, config) => {
   ); // Debugging
 };
 
-// const resetValidation = (formEl, inputList, config) => {
-//   inputList.forEach((input) => {
-//     hideInputError(formEl, input, config);
-//   });
-// };
+const resetValidation = (formEl, inputList, config) => {
+  inputList.forEach((input) => {
+    hideInputError(formEl, input, config);
+  });
+  toggleButtonState(inputList, buttonEl, config);
+};
 
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
